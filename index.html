@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindEase | Balance Your Mind</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Background with calm river image and overlay for readability */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+        url('https://media.istockphoto.com/id/518735728/photo/calm-river-nature-background.jpg?s=612x612&w=0&k=20&c=eZKHXrP4rJbHlAfexStmDNnrcquNfxcvAS86m4YC-u8=');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #1b2a41;
+      min-height: 100vh;
+    }
+
+    /* Hero Section Styling */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .hero h1 {
+      font-weight: 700;
+      font-size: 3.5rem;
+      color: #2c3e50;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .hero p.lead {
+      font-size: 1.5rem;
+      color: #3a5068;
+      margin-top: 1rem;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+    }
+
+    .primary-btn {
+      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      border: none;
+      padding: 0.75rem 2rem;
+      font-size: 1.25rem;
+      color: white;
+      border-radius: 50px;
+      margin-top: 2rem;
+      box-shadow: 0 4px 15px rgba(101, 41, 255, 0.3);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .primary-btn:hover {
+      box-shadow: 0 6px 20px rgba(101, 41, 255, 0.6);
+      transform: translateY(-3px);
+    }
+
+    /* Mood tracker buttons */
+    .mood-btn {
+      font-size: 2rem;
+      padding: 0.6rem 1rem;
+      border-radius: 12px;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(200, 200, 220, 0.3);
+    }
+
+    .mood-btn:hover, .mood-btn:focus {
+      border-color: #6a11cb;
+      box-shadow: 0 6px 20px rgba(101, 41, 255, 0.5);
+      transform: translateY(-3px);
+      outline: none;
+    }
+
+    /* Journal textarea */
+    textarea#entry {
+      border-radius: 12px;
+      border: 2px solid #6a11cb;
+      padding: 1rem;
+      font-size: 1.2rem;
+      transition: box-shadow 0.3s ease;
+    }
+
+    textarea#entry:focus {
+      box-shadow: 0 0 10px #6a11cbaa;
+      border-color: #6a11cb;
+      outline: none;
+    }
+
+    /* Save entry button */
+    #saveEntry {
+      background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+      border: none;
+      font-size: 1.25rem;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      color: white;
+      margin-top: 1rem;
+      box-shadow: 0 4px 15px rgba(101, 41, 255, 0.3);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    #saveEntry:hover {
+      box-shadow: 0 6px 20px rgba(101, 41, 255, 0.6);
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <i class="fa-solid fa-leaf text-success me-2"></i>
+        <span class="fw-bold fs-4">MindEase</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false" aria-controls="navbarNav" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#mood">Mood</a></li>
+          <li class="nav-item"><a class="nav-link" href="#journal">Journal</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero d-flex flex-column align-items-center justify-content-center text-center">
+    <div class="container position-relative">
+      <h1 class="fw-bold display-4">Balance. Breathe. Bloom 🌸</h1>
+      <p class="lead">Discover calmness, track your emotions, and grow mindfully every day.</p>
+      <button id="quoteBtn" class="primary-btn"><i class="fa-solid fa-sparkles me-2"></i>Get Daily Quote</button>
+      <p id="quoteDisplay" class="mt-4 fs-5"></p>
+    </div>
+  </section>
+
+  <!-- Mood Tracker Section -->
+  <section id="mood" class="py-5 bg-light text-center">
+    <div class="container">
+      <h2 class="fw-bold mb-4">How Are You Feeling Today?</h2>
+      <div class="mood-icons d-flex justify-content-center flex-wrap gap-3">
+        <button class="mood-btn" onclick="saveMood('😄')">😄</button>
+        <button class="mood-btn" onclick="saveMood('😊')">😊</button>
+        <button class="mood-btn" onclick="saveMood('😐')">😐</button>
+        <button class="mood-btn" onclick="saveMood('😞')">😞</button>
+        <button class="mood-btn" onclick="saveMood('😢')">😢</button>
+      </div>
+      <p id="moodMessage" class="mt-3 text-muted fs-5"></p>
+    </div>
+  </section>
+
+  <!-- Journal Section -->
+  <section id="journal" class="py-5">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-3">Journal Your Thoughts</h2>
+      <p class="text-muted mb-4">Your private corner to express, reflect, and heal ✨</p>
+      <textarea id="entry" class="form-control w-75 mx-auto" rows="4" placeholder="Write what’s on your mind..."></textarea>
+      <button id="saveEntry" class="btn btn-success mt-3">Save Entry</button>
+      <div id="entries" class="mt-4"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section py-5 text-center bg-light">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4">
+          <img src="images/bg.jpg" class="img-fluid rounded shadow" alt="MindEase background" />
+        </div>
+        <div class="col-lg-6 text-lg-start">
+          <h2 class="fw-bold">About MindEase 🌿</h2>
+          <p class="lead">MindEase is your mental wellness companion — a sanctuary for reflection, journaling, and balance. Step into calm through mindful writing and emotional awareness.</p>
+          <p>Track moods, express thoughts, and nurture your inner peace through journaling that heals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4 bg-dark text-white text-center">
+    <div class="container">
+      <p>© 2025 MindEase | Made with 💚 by Abha</p>
+      <div class="d-flex justify-content-center gap-3">
+        <a href="#" class="text-white"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="text-white"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="text-white"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Your custom script -->
+  <script src="script.js"></script>
+</body>
+</html>
